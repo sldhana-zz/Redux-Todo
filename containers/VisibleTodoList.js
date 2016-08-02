@@ -19,19 +19,17 @@ that tells how to transform the current Redux store state into the props you wan
  to pass to a presentational component you are wrapping.
 */
 
-const mapStateToProps = (state) => {
-  return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
-  };
-};
+const mapStateToProps = (state) => ({
+  // if you're just returning an object, return this way and ignore the return statement
+  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onTodoClick: (id) => {
-      dispatch(toggleTodo(id));
-    }
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  //concise return statement inside an object
+  onTodoClick(id) {
+    dispatch(toggleTodo(id));
+  }
+});
 
  const VisibleTodoList = connect(
    mapStateToProps,

@@ -1,18 +1,20 @@
-module.exports = {
-  entry: './index.js',
+import path from 'path';
+
+export default {
+  devtool: 'eval',
+  entry: './index',
   output: {
-    path: './public/',
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
   },
   module: {
     loaders: [
             {
                 test: /\.(js|jsx)$/,
-                loader: 'babel',
+                loaders: ['babel'],
                 exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                include: __dirname
             }
         ]
   }

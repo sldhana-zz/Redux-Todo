@@ -10,7 +10,6 @@ const todo = (state, action) => {
         completed: false
       };
     case 'TOGGLE_TODO':
-      debugger;
       // if the object doesn't match, just return current state
       if(state.id !== action.id){
         return state;

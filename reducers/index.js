@@ -12,6 +12,8 @@ import { combineReducers } from 'redux';
 import todos from './todos';
 import visibilityFilter from './visibilityFilter';
 
+// the combined reducer will contain two keys, one is the todos array
+// and the other is the visibilityFilter which initially contains 'SHOW_ALL'
 const todoApp = combineReducers({
   todos,
   visibilityFilter
